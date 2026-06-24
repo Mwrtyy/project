@@ -4,11 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio premium de Shahine, monteur vidéo spécialisé en TikTok edits, cinematic edits, beat sync, transitions, color grading et motion design." />
+  <meta name="theme-color" content="#030405" />
   <title>Shahine — Video Editor Portfolio</title>
+
+  <!-- Ressource essentielle uniquement : aucun framework, aucun asset lourd. -->
+  <link rel="preload" href="style.css" as="style" />
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Fond audiovisuel : canvas particules + calques métalliques CSS -->
+  <!-- Fond audiovisuel optimisé : canvas léger + calques CSS peu coûteux. -->
   <canvas id="particleCanvas" aria-hidden="true"></canvas>
   <div class="background-grid" aria-hidden="true"></div>
   <div class="background-noise" aria-hidden="true"></div>
@@ -16,17 +21,23 @@
   <div class="metal-orb orb-one" aria-hidden="true"></div>
   <div class="metal-orb orb-two" aria-hidden="true"></div>
 
+  <!-- Curseur liquid glass : activé uniquement sur desktop précis, désactivé sur tactile/mobile/performance mode. -->
+  <div class="liquid-cursor" id="liquidCursor" aria-hidden="true">
+    <span class="liquid-cursor-core"></span>
+  </div>
+  <div class="liquid-cursor-trail" id="liquidCursorTrail" aria-hidden="true"></div>
+
   <header class="site-header">
-    <a class="brand" href="#home" data-target="home" aria-label="Retour à l'accueil">
+    <a class="brand interactive" href="#home" data-target="home" aria-label="Retour à l'accueil">
       <span class="brand-mark"></span>
       <span>SHAHINE</span>
     </a>
 
     <nav class="desktop-nav" aria-label="Navigation principale">
-      <button class="nav-link active" type="button" data-target="home">Home</button>
-      <button class="nav-link" type="button" data-target="edits">Edits</button>
-      <button class="nav-link" type="button" data-target="skills">Skills</button>
-      <button class="nav-link" type="button" data-target="contact">Contact</button>
+      <button class="nav-link active interactive" type="button" data-target="home">Home</button>
+      <button class="nav-link interactive" type="button" data-target="edits">Edits</button>
+      <button class="nav-link interactive" type="button" data-target="skills">Skills</button>
+      <button class="nav-link interactive" type="button" data-target="contact">Contact</button>
     </nav>
   </header>
 
@@ -41,8 +52,8 @@
       </p>
 
       <div class="hero-actions reveal delay-3" aria-label="Actions rapides">
-        <button class="primary-cta" type="button" data-target="edits">View edits</button>
-        <button class="secondary-cta" type="button" data-target="contact">Contact</button>
+        <button class="primary-cta interactive" type="button" data-target="edits">View edits</button>
+        <button class="secondary-cta interactive" type="button" data-target="contact">Contact</button>
       </div>
 
       <div class="tag-cloud reveal delay-4" aria-label="Spécialités">
@@ -71,8 +82,8 @@
     <section class="phone-stage" aria-label="Aperçu interactif du portfolio mobile">
       <div class="phone-shadow" aria-hidden="true"></div>
 
-      <!-- Téléphone 3D entièrement créé en HTML/CSS. Les variables CSS sont pilotées par JS. -->
-      <div class="phone-shell" id="phoneShell">
+      <!-- Téléphone 3D CSS : pas de modèle lourd, pas de WebGL requis, donc rendu fluide sur GitHub Pages. -->
+      <div class="phone-shell interactive-phone" id="phoneShell">
         <div class="phone-side left-button top"></div>
         <div class="phone-side left-button bottom"></div>
         <div class="phone-side right-button"></div>
@@ -104,27 +115,27 @@
                     <article><strong>35+</strong><span>Clients</span></article>
                   </div>
 
-                  <button class="phone-main-btn" type="button" data-target="edits">Explore edits</button>
+                  <button class="phone-main-btn interactive" type="button" data-target="edits">Explore edits</button>
                 </section>
 
                 <section class="phone-panel" data-section="edits" aria-label="Edits mobile">
                   <p class="mini-label">Selected edits</p>
                   <h2>Edits</h2>
                   <div class="project-stack">
-                    <article class="project-card">
-                      <div class="video-thumb cinematic"></div>
+                    <article class="project-card interactive">
+                      <div class="video-thumb cinematic" role="img" aria-label="Emplacement miniature Cinematic Edit"></div>
                       <div><strong>Cinematic Edit</strong><span>Slow motion / mood / depth</span></div>
                     </article>
-                    <article class="project-card">
-                      <div class="video-thumb beat"></div>
+                    <article class="project-card interactive">
+                      <div class="video-thumb beat" role="img" aria-label="Emplacement miniature Beat Sync"></div>
                       <div><strong>Beat Sync</strong><span>Cuts locked to rhythm</span></div>
                     </article>
-                    <article class="project-card">
-                      <div class="video-thumb transition"></div>
+                    <article class="project-card interactive">
+                      <div class="video-thumb transition" role="img" aria-label="Emplacement miniature Transition Edit"></div>
                       <div><strong>Transition Edit</strong><span>Whip / zoom / match cuts</span></div>
                     </article>
-                    <article class="project-card">
-                      <div class="video-thumb aesthetic"></div>
+                    <article class="project-card interactive">
+                      <div class="video-thumb aesthetic" role="img" aria-label="Emplacement miniature Aesthetic Edit"></div>
                       <div><strong>Aesthetic Edit</strong><span>Clean grading / texture</span></div>
                     </article>
                   </div>
@@ -149,20 +160,20 @@
                   <p class="panel-text">Built for creators, brands and artists who need visuals that hit.</p>
 
                   <div class="contact-list">
-                    <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok <span>@shahine.edits</span></a>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram <span>@shahine.visuals</span></a>
-                    <a href="mailto:shahine.edits@example.com">Email <span>shahine.edits@example.com</span></a>
+                    <a class="interactive" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok <span>@shahine.edits</span></a>
+                    <a class="interactive" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram <span>@shahine.visuals</span></a>
+                    <a class="interactive" href="mailto:shahine.edits@example.com">Email <span>shahine.edits@example.com</span></a>
                   </div>
 
-                  <a class="phone-main-btn contact-btn" href="mailto:shahine.edits@example.com">Work with me</a>
+                  <a class="phone-main-btn contact-btn interactive" href="mailto:shahine.edits@example.com">Work with me</a>
                 </section>
               </div>
 
               <nav class="phone-nav" aria-label="Navigation dans le téléphone">
-                <button class="phone-nav-btn active" type="button" data-target="home">Home</button>
-                <button class="phone-nav-btn" type="button" data-target="edits">Edits</button>
-                <button class="phone-nav-btn" type="button" data-target="skills">Skills</button>
-                <button class="phone-nav-btn" type="button" data-target="contact">Contact</button>
+                <button class="phone-nav-btn active interactive" type="button" data-target="home">Home</button>
+                <button class="phone-nav-btn interactive" type="button" data-target="edits">Edits</button>
+                <button class="phone-nav-btn interactive" type="button" data-target="skills">Skills</button>
+                <button class="phone-nav-btn interactive" type="button" data-target="contact">Contact</button>
               </nav>
             </div>
           </div>
@@ -173,9 +184,7 @@
 
   <footer class="site-footer">
     <span>Available for short-form edits, music visuals and brand content.</span>
-    <span>Dark luxury portfolio concept.</span>
+    <span>Performance-first dark luxury portfolio.</span>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

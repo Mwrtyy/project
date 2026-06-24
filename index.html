@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio premium de Shahine, monteur vidéo spécialisé en TikTok edits, cinematic edits, beat sync, transitions, color grading et motion design." />
+  <meta name="description" content="Portfolio premium de Shahine, monteur vidéo spécialisé en TikTok edits, cinematic cuts, beat sync, transitions, color grading et motion design." />
   <meta name="theme-color" content="#030405" />
-  <title>Shahine — Video Editor Portfolio</title>
+  <title>Shahine — Premium Video Editor</title>
 
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="preload" href="styles/main.css" as="style" />
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="stylesheet" href="styles/responsive.css" />
@@ -15,16 +14,17 @@
 </head>
 <body class="is-loading">
   <canvas id="particleCanvas" aria-hidden="true"></canvas>
-  <canvas id="webglScene" aria-label="Téléphone 3D interactif du portfolio Shahine"></canvas>
 
   <div class="background-grid" aria-hidden="true"></div>
-  <div class="background-noise" aria-hidden="true"></div>
+  <div class="cinema-vignette" aria-hidden="true"></div>
   <div class="cursor-spotlight" aria-hidden="true"></div>
-  <div class="metal-orb orb-one" aria-hidden="true"></div>
-  <div class="metal-orb orb-two" aria-hidden="true"></div>
+  <div class="chrome-orb orb-left" aria-hidden="true"></div>
+  <div class="chrome-orb orb-right" aria-hidden="true"></div>
+  <div class="liquid-ribbon ribbon-a" aria-hidden="true"></div>
+  <div class="liquid-ribbon ribbon-b" aria-hidden="true"></div>
 
   <div class="liquid-cursor" id="liquidCursor" aria-hidden="true">
-    <span class="liquid-cursor-core"></span>
+    <span class="cursor-highlight"></span>
   </div>
   <div class="liquid-cursor-trail" id="liquidCursorTrail" aria-hidden="true"></div>
 
@@ -42,66 +42,143 @@
     </nav>
   </header>
 
-  <main class="hero-shell" id="home">
-    <section class="hero-copy" aria-labelledby="hero-title">
-      <p class="eyebrow reveal">Premium audiovisual portfolio</p>
-      <h1 id="hero-title" class="reveal delay-1">SHAHINE</h1>
-      <p class="hero-lead reveal delay-2">
-        Video editor crafting TikTok edits, cinematic cuts and beat sync visuals with clean pacing, premium grading and social-first impact.
-      </p>
+  <main id="home" class="page-shell">
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow reveal">Premium audiovisual portfolio</p>
+        <h1 id="hero-title" class="hero-title reveal delay-1">SHAHINE</h1>
+        <p class="hero-lead reveal delay-2">
+          Video editor crafting TikTok edits, cinematic cuts and beat sync visuals with clean pacing, premium grading and social-first impact.
+        </p>
 
-      <div class="hero-actions reveal delay-3" aria-label="Actions rapides">
-        <button class="primary-cta interactive" type="button" data-target="edits">View edits</button>
-        <button class="secondary-cta interactive" type="button" data-target="contact">Contact</button>
+        <div class="hero-actions reveal delay-3">
+          <button class="primary-cta interactive" type="button" data-target="edits">View edits</button>
+          <button class="secondary-cta interactive" type="button" data-target="contact">Contact</button>
+        </div>
+
+        <div class="tag-cloud reveal delay-4" aria-label="Spécialités">
+          <span>TikTok Edits</span>
+          <span>Beat Sync</span>
+          <span>Color Grading</span>
+          <span>Motion Design</span>
+          <span>Cinematic Cuts</span>
+        </div>
+
+        <div class="hero-metrics reveal delay-5" aria-label="Statistiques de Shahine">
+          <article><strong>180+</strong><span>Edits delivered</span></article>
+          <article><strong>12M+</strong><span>Estimated views</span></article>
+          <article><strong>48+</strong><span>Creators & brands</span></article>
+        </div>
       </div>
 
-      <div class="tag-cloud reveal delay-4" aria-label="Spécialités">
-        <span>TikTok Edits</span>
-        <span>Beat Sync</span>
-        <span>Color Grading</span>
-        <span>Motion Design</span>
-        <span>Cinematic Cuts</span>
-      </div>
+      <div class="showcase-stage" aria-label="Téléphone 3D interactif contenant le portfolio de Shahine">
+        <div class="stage-plate" aria-hidden="true"></div>
+        <div class="stage-note glass-card reveal delay-4">
+          <strong>Interactive portfolio</strong>
+          <span>Click, swipe or use the navigation to explore the phone interface.</span>
+        </div>
 
-      <div class="hero-metrics reveal delay-5" aria-label="Statistiques de portfolio">
-        <article>
-          <strong>180+</strong>
-          <span>Edits delivered</span>
-        </article>
-        <article>
-          <strong>12M+</strong>
-          <span>Estimated views</span>
-        </article>
-        <article>
-          <strong>48+</strong>
-          <span>Creators & brands</span>
-        </article>
-      </div>
-    </section>
+        <div class="phone-wrap reveal delay-2" id="phoneWrap">
+          <div class="phone-device interactive" id="phoneDevice">
+            <div class="phone-depth depth-left"></div>
+            <div class="phone-depth depth-right"></div>
+            <div class="phone-button button-left-one"></div>
+            <div class="phone-button button-left-two"></div>
+            <div class="phone-button button-right"></div>
+            <div class="phone-rim">
+              <div class="phone-inner-rim">
+                <div class="dynamic-island"><span></span></div>
+                <div class="screen-glare"></div>
+                <div class="phone-screen" id="phoneScreen">
+                  <div class="screen-status">
+                    <span>SHAHINE</span>
+                    <i></i>
+                  </div>
 
-    <section class="product-stage" aria-label="Vitrine 3D interactive">
-      <div class="stage-card stage-hint reveal delay-4">
-        <strong>Interactive 3D showcase</strong>
-        Move, click or swipe on the phone screen to explore Shahine’s portfolio.
-      </div>
+                  <div class="screen-panels">
+                    <section class="screen-panel active" data-section="home">
+                      <p class="mini-label">Portfolio mobile</p>
+                      <h2>SHAHINE</h2>
+                      <h3>Video Editor</h3>
+                      <p>TikTok edits, cinematic cuts & beat sync visuals.</p>
+                      <div class="phone-stats">
+                        <article><strong>180+</strong><span>Edits</span></article>
+                        <article><strong>12M+</strong><span>Views</span></article>
+                        <article><strong>48+</strong><span>Clients</span></article>
+                      </div>
+                      <button class="phone-main-btn interactive" type="button" data-target="edits">Explore edits</button>
+                    </section>
 
-      <div class="webgl-fallback" id="webglFallback" aria-live="polite">
-        <div class="fallback-phone">
-          <div class="fallback-screen">
-            <div>
-              <p class="mini-label">Fallback mode</p>
-              <h2>SHAHINE</h2>
-              <p>WebGL is unavailable, but the premium portfolio remains accessible.</p>
+                    <section class="screen-panel" data-section="edits">
+                      <p class="mini-label">Selected edits</p>
+                      <h2>Edits</h2>
+                      <div class="project-list">
+                        <article class="project-card interactive"><i class="thumb cinematic"></i><div><strong>Cinematic Edit</strong><span>Mood / depth / polish</span></div></article>
+                        <article class="project-card interactive"><i class="thumb beat"></i><div><strong>Beat Sync</strong><span>Cuts locked to rhythm</span></div></article>
+                        <article class="project-card interactive"><i class="thumb transition"></i><div><strong>Transition Edit</strong><span>Whip / zoom / match cuts</span></div></article>
+                        <article class="project-card interactive"><i class="thumb aesthetic"></i><div><strong>Aesthetic Edit</strong><span>Texture / color / pacing</span></div></article>
+                        <article class="project-card interactive"><i class="thumb music"></i><div><strong>Music Video Cut</strong><span>Performance / rhythm</span></div></article>
+                        <article class="project-card interactive"><i class="thumb social"></i><div><strong>Social Media Ad</strong><span>Hook / retention / impact</span></div></article>
+                      </div>
+                    </section>
+
+                    <section class="screen-panel" data-section="skills">
+                      <p class="mini-label">Creative toolkit</p>
+                      <h2>Skills</h2>
+                      <div class="skill-list">
+                        <div class="skill-row" data-progress="96"><span>Video Editing</span><i></i></div>
+                        <div class="skill-row" data-progress="94"><span>Beat Sync</span><i></i></div>
+                        <div class="skill-row" data-progress="92"><span>Transitions</span><i></i></div>
+                        <div class="skill-row" data-progress="88"><span>Color Grading</span><i></i></div>
+                        <div class="skill-row" data-progress="84"><span>Sound Design</span><i></i></div>
+                        <div class="skill-row" data-progress="80"><span>Motion Design</span><i></i></div>
+                        <div class="skill-row" data-progress="86"><span>AE / Premiere / CapCut</span><i></i></div>
+                      </div>
+                    </section>
+
+                    <section class="screen-panel" data-section="contact">
+                      <p class="mini-label">Booking</p>
+                      <h2>Contact</h2>
+                      <p>Built for creators, brands and artists who need visuals that hit.</p>
+                      <div class="contact-list">
+                        <a class="interactive" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok <span>@shahine.edits</span></a>
+                        <a class="interactive" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram <span>@shahine.visuals</span></a>
+                        <a class="interactive" href="mailto:shahine.edits@example.com">Email <span>shahine.edits@example.com</span></a>
+                      </div>
+                      <a class="phone-main-btn interactive" href="mailto:shahine.edits@example.com">Work with me</a>
+                    </section>
+                  </div>
+
+                  <nav class="phone-nav" aria-label="Navigation dans le téléphone">
+                    <button class="phone-nav-btn active interactive" type="button" data-target="home">Home</button>
+                    <button class="phone-nav-btn interactive" type="button" data-target="edits">Edits</button>
+                    <button class="phone-nav-btn interactive" type="button" data-target="skills">Skills</button>
+                    <button class="phone-nav-btn interactive" type="button" data-target="contact">Contact</button>
+                  </nav>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="showreel-section" aria-label="Preuves et services">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Selected production style</p>
+        <h2>Clean edits. Strong rhythm. Premium finish.</h2>
+      </div>
+      <div class="service-grid">
+        <article class="service-card interactive reveal"><span>01</span><h3>Cinematic pacing</h3><p>Slow motion, mood, lens texture and clean cuts for visual storytelling.</p></article>
+        <article class="service-card interactive reveal delay-1"><span>02</span><h3>Beat sync impact</h3><p>Frame-accurate cuts, speed ramps and rhythm-driven transitions.</p></article>
+        <article class="service-card interactive reveal delay-2"><span>03</span><h3>Social retention</h3><p>Hooks, punchy structure and polished short-form edits built to be watched twice.</p></article>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <span>Available for short-form edits, music visuals and brand content.</span>
-    <span>Performance-first dark luxury portfolio.</span>
+    <span>Dark luxury portfolio system.</span>
   </footer>
 </body>
 </html>

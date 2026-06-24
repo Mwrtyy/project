@@ -10,9 +10,20 @@
   <link rel="preload" href="styles/main.css" as="style" />
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="stylesheet" href="styles/responsive.css" />
+  <link rel="stylesheet" href="styles/wow.css" />
   <script type="module" src="src/main.js" defer></script>
+  <script type="module" src="src/wow.js" defer></script>
 </head>
 <body class="is-loading">
+  <div class="intro-loader" id="introLoader" aria-hidden="true">
+    <div class="intro-scan"></div>
+    <div class="intro-inner">
+      <p>LOADING SHOWREEL</p>
+      <h2>SHAHINE</h2>
+      <div class="intro-bar"><span></span></div>
+    </div>
+  </div>
+
   <canvas id="particleCanvas" aria-hidden="true"></canvas>
 
   <div class="background-grid" aria-hidden="true"></div>
@@ -22,6 +33,8 @@
   <div class="chrome-orb orb-right" aria-hidden="true"></div>
   <div class="liquid-ribbon ribbon-a" aria-hidden="true"></div>
   <div class="liquid-ribbon ribbon-b" aria-hidden="true"></div>
+  <div class="laser-scan scan-one" aria-hidden="true"></div>
+  <div class="laser-scan scan-two" aria-hidden="true"></div>
 
   <div class="liquid-cursor" id="liquidCursor" aria-hidden="true">
     <span class="cursor-highlight"></span>
@@ -43,8 +56,13 @@
   </header>
 
   <main id="home" class="page-shell">
-    <section class="hero-section" aria-labelledby="hero-title">
+    <section class="hero-section hero-wow" aria-labelledby="hero-title">
       <div class="hero-copy">
+        <div class="hero-kicker reveal">
+          <span class="live-dot"></span>
+          <span>Editing system online</span>
+          <i>12M+ social views</i>
+        </div>
         <p class="eyebrow reveal">Premium audiovisual portfolio</p>
         <h1 id="hero-title" class="hero-title reveal delay-1">SHAHINE</h1>
         <p class="hero-lead reveal delay-2">
@@ -69,10 +87,25 @@
           <article><strong>12M+</strong><span>Estimated views</span></article>
           <article><strong>48+</strong><span>Creators & brands</span></article>
         </div>
+
+        <div class="timeline-widget reveal delay-5" aria-label="Timeline de montage décorative">
+          <div class="timeline-head"><span>Retention cut</span><strong>00:12 / 00:18</strong></div>
+          <div class="timeline-tracks">
+            <i style="--w: 28%"></i><i style="--w: 44%"></i><i style="--w: 18%"></i><i style="--w: 36%"></i><i style="--w: 22%"></i>
+          </div>
+          <div class="beat-dots"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
       </div>
 
       <div class="showcase-stage" aria-label="Téléphone 3D interactif contenant le portfolio de Shahine">
         <div class="stage-plate" aria-hidden="true"></div>
+        <div class="chrome-halo halo-one" aria-hidden="true"></div>
+        <div class="chrome-halo halo-two" aria-hidden="true"></div>
+        <div class="sound-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="floating-card card-top interactive" data-depth="18"><span>01</span><strong>Beat Sync</strong><small>cut / impact / loop</small></div>
+        <div class="floating-card card-left interactive" data-depth="-12"><span>02</span><strong>Color Grade</strong><small>chrome / contrast</small></div>
+        <div class="floating-card card-right interactive" data-depth="10"><span>03</span><strong>Retention</strong><small>hook / replay</small></div>
+
         <div class="stage-note glass-card reveal delay-4">
           <strong>Interactive portfolio</strong>
           <span>Click, swipe or use the navigation to explore the phone interface.</span>
@@ -163,10 +196,19 @@
       </div>
     </section>
 
-    <section class="showreel-section" aria-label="Preuves et services">
+    <section class="showreel-section showreel-wow" aria-label="Preuves et services">
       <div class="section-heading reveal">
         <p class="eyebrow">Selected production style</p>
         <h2>Clean edits. Strong rhythm. Premium finish.</h2>
+      </div>
+      <div class="showreel-frame reveal delay-1">
+        <div class="showreel-top"><span>SHAHINE / SHOWREEL</span><strong>4K SOCIAL CUT</strong></div>
+        <div class="showreel-visual">
+          <div class="play-orb interactive"><span></span></div>
+          <div class="reel-strip"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="waveform"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="showreel-bottom"><span>Hook 00:02</span><span>Speed ramp</span><span>Grade pass</span><span>Export ready</span></div>
       </div>
       <div class="service-grid">
         <article class="service-card interactive reveal"><span>01</span><h3>Cinematic pacing</h3><p>Slow motion, mood, lens texture and clean cuts for visual storytelling.</p></article>

@@ -1,23 +1,24 @@
 # Shahine — Ultra Premium Video Editor Portfolio
 
-Portfolio audiovisuel haut de gamme pour **Shahine**, monteur vidéo spécialisé en TikTok edits, cinematic edits, beat sync, transitions, color grading, motion design et contenu social media.
+Portfolio audiovisuel haut de gamme pour **Shahine**, monteur vidéo spécialisé en TikTok edits, cinematic cuts, beat sync, transitions, color grading, motion design et contenu social media.
 
-Le projet est pensé comme une vitrine digitale immersive : dark luxury, chrome, liquid glass, fond interactif, curseur custom et téléphone 3D procédural en Three.js.
+Cette version applique le rapport de recherche : typographie forte, composition plus respirante, micro-interactions utiles, esthétique dark luxury / chrome / liquid glass, performance avant effets gratuits, et un téléphone 3D stable visible dès le hero.
 
 ## Fonctionnalités
 
-- Expérience compatible GitHub Pages
-- Structure modulaire propre en `src/` et `styles/`
-- Téléphone 3D généré en Three.js, sans logo visible et sans modèle lourd
-- Châssis métallique, écran OLED, Dynamic Island, boutons latéraux, reflets et ombres
-- Interface portfolio dessinée dynamiquement dans l'écran du téléphone
+- Site compatible GitHub Pages
+- Hero premium sombre avec fond animé, particules discrètes, grille subtile et reflets chrome
+- Téléphone CSS 3D réaliste, visible et stable, sans logo de marque
+- Châssis métallique, bords arrondis, Dynamic Island, boutons latéraux, écran OLED et reflet de verre
+- Interface mobile intégrée dans l'écran du téléphone
 - Sections : Home, Edits, Skills, Contact
-- Navigation externe + navigation dans l'écran par clic ou swipe
-- Curseur desktop liquid glass optimisé avec interpolation fluide
-- Spotlight, particules discrètes, grain cinématique et reflets chrome
-- Mode performance automatique pour appareils faibles ou mobiles
+- Navigation externe + navigation interne dans le téléphone
+- Swipe horizontal dans l'écran du téléphone
+- Curseur desktop liquid glass avec interpolation `requestAnimationFrame`
+- Mode performance automatique sur mobile/appareils faibles
 - Respect de `prefers-reduced-motion`
-- Fallback propre si WebGL n'est pas disponible
+- Animations principalement en `transform` et `opacity`
+- Aucune dépendance obligatoire pour le rendu public
 
 ## Structure
 
@@ -30,13 +31,7 @@ Le projet est pensé comme une vitrine digitale immersive : dark luxury, chrome,
 │   ├── main.css
 │   └── responsive.css
 ├── src/
-│   ├── main.js
-│   ├── scene.js
-│   ├── phone.js
-│   ├── cursor.js
-│   ├── animations.js
-│   ├── portfolioData.js
-│   └── utils.js
+│   └── main.js
 └── assets/
     ├── models/
     ├── textures/
@@ -76,7 +71,7 @@ Le projet fonctionne directement depuis la racine du repo.
 5. Sélectionne le dossier `/ (root)`.
 6. Clique sur **Save**.
 
-L'URL sera normalement :
+URL attendue :
 
 ```text
 https://mwrtyy.github.io/project/
@@ -84,29 +79,17 @@ https://mwrtyy.github.io/project/
 
 ## Performance
 
-Le site applique automatiquement plusieurs optimisations :
+- Particules limitées selon l'appareil
+- Curseur custom désactivé sur mobile/tactile
+- Effets de fond réduits en mode performance
+- Animations souris en `requestAnimationFrame`
+- Pas de modèle 3D lourd à télécharger
+- Pas de post-processing WebGL coûteux
+- Interface fluide avec transitions transform/opacity
 
-- `requestAnimationFrame` pour les animations souris, particules et scène 3D
-- `renderer.setPixelRatio()` limité selon l'appareil, maximum 1.75
-- particules réduites sur mobile ou appareil faible
-- curseur liquid glass désactivé sur tactile, mobile, appareils faibles et `prefers-reduced-motion`
-- animations principalement en `transform` et `opacity`
-- téléphone 3D procédural au lieu d'un modèle GLB lourd
-- fallback si WebGL échoue
+## Personnalisation rapide
 
-## Personnalisation
-
-Les contenus principaux sont dans :
-
-```text
-src/portfolioData.js
-```
-
-Tu peux y changer :
-
-- les statistiques ;
-- les projets ;
-- les skills ;
-- les liens TikTok, Instagram et email.
-
-Pour ajouter de vraies images ou vidéos, place-les dans `assets/images/` ou `assets/videos/`, puis adapte le rendu dans `src/phone.js`.
+- Modifie les textes dans `index.html`.
+- Remplace les liens TikTok, Instagram et email dans la section Contact.
+- Ajoute des images ou vidéos optimisées dans `assets/images/` ou `assets/videos/`.
+- Pour de vraies miniatures, remplace les placeholders `.thumb` par des images compressées WebP/AVIF.

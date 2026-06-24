@@ -1,0 +1,1 @@
+Place optimized image thumbnails here. Prefer WebP or AVIF for production.

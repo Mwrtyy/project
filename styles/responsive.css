@@ -1,0 +1,149 @@
+@media (max-width: 1080px) {
+  .hero-shell {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 110px;
+    gap: 18px;
+  }
+
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-copy h1,
+  .hero-lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions,
+  .tag-cloud,
+  .hero-metrics {
+    justify-content: center;
+  }
+
+  .product-stage {
+    min-height: 610px;
+  }
+
+  .stage-card {
+    right: 50%;
+    bottom: 3%;
+    transform: translateX(50%);
+    text-align: center;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    background-color: var(--black);
+  }
+
+  .site-header {
+    position: sticky;
+    align-items: flex-start;
+    gap: 14px;
+    flex-direction: column;
+    padding: 16px 16px 10px;
+  }
+
+  .desktop-nav {
+    width: 100%;
+    justify-content: space-between;
+    overflow-x: auto;
+  }
+
+  .nav-link {
+    min-width: auto;
+    padding: 10px 11px;
+    font-size: 0.82rem;
+  }
+
+  .hero-shell {
+    width: min(100% - 24px, 560px);
+    padding-top: 34px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.9rem, 17vw, 4.9rem);
+  }
+
+  .hero-lead {
+    font-size: 0.98rem;
+  }
+
+  .primary-cta,
+  .secondary-cta {
+    flex: 1 1 150px;
+  }
+
+  .tag-cloud {
+    gap: 9px;
+  }
+
+  .tag-cloud span {
+    font-size: 0.78rem;
+  }
+
+  .hero-metrics article {
+    flex: 1 1 132px;
+  }
+
+  .product-stage {
+    min-height: 560px;
+  }
+
+  .stage-card {
+    display: none;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    width: min(100% - 28px, 500px);
+    margin-top: 0;
+    padding-bottom: 22px;
+    text-align: center;
+  }
+
+  .metal-orb,
+  .background-noise,
+  .liquid-cursor,
+  .liquid-cursor-trail {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand {
+    font-size: 0.7rem;
+  }
+
+  .desktop-nav {
+    gap: 4px;
+    padding: 5px;
+  }
+
+  .nav-link {
+    padding: 9px 8px;
+  }
+
+  .product-stage {
+    min-height: 510px;
+  }
+
+  .hero-metrics article {
+    min-width: 0;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  body,
+  body * {
+    cursor: auto !important;
+  }
+
+  .liquid-cursor,
+  .liquid-cursor-trail {
+    display: none !important;
+  }
+}

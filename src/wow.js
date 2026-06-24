@@ -29,6 +29,46 @@ window.addEventListener('pointermove', (event) => {
   targetY = (event.clientY / window.innerHeight - 0.5) * 2;
 }, { passive: true });
 
+function setupHyperInteractions() {
+  const items = document.querySelectorAll('.interactive, .magnetic, .fx-button, .project-card, .service-card, .hero-metrics article, .tag-cloud span');
+
+  items.forEach((item) => {
+    item.classList.add('hyper-ready');
+
+    item.addEventListener('pointermove', (event) => {
+      if (!precisePointer || reduced) return;
+      const rect = item.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const nx = x / rect.width - 0.5;
+      const ny = y / rect.height - 0.5;
+      item.style.setProperty('--hover-x', `${x}px`);
+      item.style.setProperty('--hover-y', `${y}px`);
+      item.style.setProperty('--mag-x', `${(nx * 12).toFixed(2)}px`);
+      item.style.setProperty('--mag-y', `${(ny * 12).toFixed(2)}px`);
+      item.style.setProperty('--tilt-x', `${(-ny * 6).toFixed(2)}deg`);
+      item.style.setProperty('--tilt-y', `${(nx * 6).toFixed(2)}deg`);
+    }, { passive: true });
+
+    item.addEventListener('pointerleave', () => {
+      item.style.setProperty('--mag-x', '0px');
+      item.style.setProperty('--mag-y', '0px');
+      item.style.setProperty('--tilt-x', '0deg');
+      item.style.setProperty('--tilt-y', '0deg');
+    }, { passive: true });
+  });
+}
+
+function setupRouteLikeSections() {
+  const nav = document.querySelectorAll('.site-header .nav-link[data-target]');
+  nav.forEach((button) => {
+    button.addEventListener('click', () => {
+      document.body.classList.add('route-flash');
+      setTimeout(() => document.body.classList.remove('route-flash'), 520);
+    });
+  });
+}
+
 function loop() {
   currentX += (targetX - currentX) * 0.075;
   currentY += (targetY - currentY) * 0.075;
@@ -50,4 +90,6 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
+setupHyperInteractions();
+setupRouteLikeSections();
 loop();

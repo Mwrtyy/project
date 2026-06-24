@@ -1,0 +1,106 @@
+.magnetic:hover,
+.fx-button:hover,
+.interactive:hover {
+  transform: translate3d(0, -7px, 0) scale(1.025);
+}
+
+.nav-link:hover {
+  transform: translate3d(0, -2px, 0) scale(1.04);
+}
+
+.primary-cta:hover,
+.secondary-cta:hover,
+.phone-main-btn:hover,
+.contact-action:hover,
+.edit-card:hover,
+.service-card:hover,
+.process-step:hover,
+.page-stat-row article:hover {
+  transform: translate3d(0, -9px, 0) scale(1.025);
+}
+
+.edit-card,
+.service-card,
+.process-step,
+.contact-action,
+.page-stat-row article,
+.primary-cta,
+.secondary-cta,
+.nav-link,
+.phone-main-btn {
+  transition: transform .22s cubic-bezier(.2,.8,.2,1), border-color .22s ease, background .22s ease, box-shadow .22s ease;
+}
+
+.primary-cta:active,
+.secondary-cta:active,
+.nav-link:active,
+.contact-action:active,
+.edit-card:active,
+.service-card:active {
+  transform: translate3d(0, -2px, 0) scale(.985);
+}
+
+.fx-button::before,
+.nav-link::before,
+.contact-action::before,
+.edit-card::before,
+.service-card::before,
+.process-step::after {
+  pointer-events: none;
+}
+
+.contact-action,
+.nav-link,
+.primary-cta,
+.secondary-cta,
+.edit-card,
+.service-card,
+.process-step {
+  overflow: hidden;
+}
+
+.contact-action::after,
+.process-step::after,
+.page-stat-row article::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,.24), transparent 42%);
+  transition: opacity .22s ease;
+}
+
+.contact-action:hover::after,
+.process-step:hover::after,
+.page-stat-row article:hover::after {
+  opacity: .75;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.button-row .primary-cta,
+.button-row .secondary-cta {
+  min-width: 150px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magnetic:hover,
+  .fx-button:hover,
+  .interactive:hover,
+  .primary-cta:hover,
+  .secondary-cta:hover,
+  .phone-main-btn:hover,
+  .contact-action:hover,
+  .edit-card:hover,
+  .service-card:hover,
+  .process-step:hover,
+  .page-stat-row article:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "shahine-premium-video-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ultra premium audiovisual portfolio for Shahine, built for GitHub Pages with vanilla modules and Three.js CDN.",
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview",
+    "serve": "python -m http.server 5500"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

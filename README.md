@@ -35,7 +35,7 @@ http://localhost:5500
 1. Va dans les paramètres du repository GitHub.
 2. Ouvre **Pages**.
 3. Dans **Build and deployment**, choisis **Deploy from a branch**.
-4. Sélectionne la branche `main` et le dossier `/root`.
+4. Sélectionne la branche `main` et le dossier `/ (root)`.
 5. Clique sur **Save**.
 6. GitHub donnera une URL publique du type : `https://mwrtyy.github.io/project/`.
 

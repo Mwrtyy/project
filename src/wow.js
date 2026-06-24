@@ -85,8 +85,8 @@ function setRoute(route) {
 
 function setupRoutes() {
   buildRoutes();
-  document.querySelectorAll('.site-header [data-target], .hero-actions [data-target]').forEach((button) => {
-    button.addEventListener('click', () => setRoute(button.dataset.target));
+  document.querySelectorAll('.site-header [data-target], .hero-actions [data-target], [data-route-target]').forEach((button) => {
+    button.addEventListener('click', () => setRoute(button.dataset.target || button.dataset.routeTarget));
   });
 }
 

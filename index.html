@@ -7,21 +7,22 @@
   <meta name="theme-color" content="#030405" />
   <title>Shahine — Video Editor Portfolio</title>
 
-  <!-- Ressource essentielle uniquement : aucun framework, aucun asset lourd. -->
-  <link rel="preload" href="style.css" as="style" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preload" href="styles/main.css" as="style" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
+  <script type="module" src="src/main.js" defer></script>
 </head>
-<body>
-  <!-- Fond audiovisuel optimisé : canvas léger + calques CSS peu coûteux. -->
+<body class="is-loading">
   <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <canvas id="webglScene" aria-label="Téléphone 3D interactif du portfolio Shahine"></canvas>
+
   <div class="background-grid" aria-hidden="true"></div>
   <div class="background-noise" aria-hidden="true"></div>
   <div class="cursor-spotlight" aria-hidden="true"></div>
   <div class="metal-orb orb-one" aria-hidden="true"></div>
   <div class="metal-orb orb-two" aria-hidden="true"></div>
 
-  <!-- Curseur liquid glass : activé uniquement sur desktop précis, désactivé sur tactile/mobile/performance mode. -->
   <div class="liquid-cursor" id="liquidCursor" aria-hidden="true">
     <span class="liquid-cursor-core"></span>
   </div>
@@ -41,14 +42,12 @@
     </nav>
   </header>
 
-  <main class="hero-shell">
+  <main class="hero-shell" id="home">
     <section class="hero-copy" aria-labelledby="hero-title">
-      <p class="eyebrow reveal">Premium video editor</p>
-      <h1 id="hero-title" class="reveal delay-1">
-        Shahine turns raw clips into visuals that hit.
-      </h1>
+      <p class="eyebrow reveal">Premium audiovisual portfolio</p>
+      <h1 id="hero-title" class="reveal delay-1">SHAHINE</h1>
       <p class="hero-lead reveal delay-2">
-        TikTok Edits / Cinematic Cuts / Beat Sync. Fast, clean and addictive videos built for creators, brands and artists.
+        Video editor crafting TikTok edits, cinematic cuts and beat sync visuals with clean pacing, premium grading and social-first impact.
       </p>
 
       <div class="hero-actions reveal delay-3" aria-label="Actions rapides">
@@ -61,120 +60,38 @@
         <span>Beat Sync</span>
         <span>Color Grading</span>
         <span>Motion Design</span>
+        <span>Cinematic Cuts</span>
       </div>
 
       <div class="hero-metrics reveal delay-5" aria-label="Statistiques de portfolio">
         <article>
-          <strong>120+</strong>
+          <strong>180+</strong>
           <span>Edits delivered</span>
         </article>
         <article>
-          <strong>8.4M</strong>
+          <strong>12M+</strong>
           <span>Estimated views</span>
         </article>
         <article>
-          <strong>35+</strong>
+          <strong>48+</strong>
           <span>Creators & brands</span>
         </article>
       </div>
     </section>
 
-    <section class="phone-stage" aria-label="Aperçu interactif du portfolio mobile">
-      <div class="phone-shadow" aria-hidden="true"></div>
+    <section class="product-stage" aria-label="Vitrine 3D interactive">
+      <div class="stage-card stage-hint reveal delay-4">
+        <strong>Interactive 3D showcase</strong>
+        Move, click or swipe on the phone screen to explore Shahine’s portfolio.
+      </div>
 
-      <!-- Téléphone 3D CSS : pas de modèle lourd, pas de WebGL requis, donc rendu fluide sur GitHub Pages. -->
-      <div class="phone-shell interactive-phone" id="phoneShell">
-        <div class="phone-side left-button top"></div>
-        <div class="phone-side left-button bottom"></div>
-        <div class="phone-side right-button"></div>
-
-        <div class="phone-frame">
-          <div class="phone-metal-edge"></div>
-          <div class="phone-glass">
-            <div class="dynamic-island" aria-hidden="true">
-              <span></span>
-            </div>
-            <div class="glass-reflection" aria-hidden="true"></div>
-
-            <div class="phone-screen" id="phoneScreen">
-              <div class="mobile-status">
-                <span>SHAHINE</span>
-                <span class="status-dot"></span>
-              </div>
-
-              <div class="phone-content" id="phoneContent">
-                <section class="phone-panel active" data-section="home" aria-label="Accueil mobile">
-                  <p class="mini-label">Portfolio mobile</p>
-                  <h2>SHAHINE</h2>
-                  <h3>Video Editor</h3>
-                  <p class="panel-text">TikTok edits, cinematic cuts & beat sync visuals.</p>
-
-                  <div class="stats-grid">
-                    <article><strong>120+</strong><span>Projects</span></article>
-                    <article><strong>8.4M</strong><span>Views</span></article>
-                    <article><strong>35+</strong><span>Clients</span></article>
-                  </div>
-
-                  <button class="phone-main-btn interactive" type="button" data-target="edits">Explore edits</button>
-                </section>
-
-                <section class="phone-panel" data-section="edits" aria-label="Edits mobile">
-                  <p class="mini-label">Selected edits</p>
-                  <h2>Edits</h2>
-                  <div class="project-stack">
-                    <article class="project-card interactive">
-                      <div class="video-thumb cinematic" role="img" aria-label="Emplacement miniature Cinematic Edit"></div>
-                      <div><strong>Cinematic Edit</strong><span>Slow motion / mood / depth</span></div>
-                    </article>
-                    <article class="project-card interactive">
-                      <div class="video-thumb beat" role="img" aria-label="Emplacement miniature Beat Sync"></div>
-                      <div><strong>Beat Sync</strong><span>Cuts locked to rhythm</span></div>
-                    </article>
-                    <article class="project-card interactive">
-                      <div class="video-thumb transition" role="img" aria-label="Emplacement miniature Transition Edit"></div>
-                      <div><strong>Transition Edit</strong><span>Whip / zoom / match cuts</span></div>
-                    </article>
-                    <article class="project-card interactive">
-                      <div class="video-thumb aesthetic" role="img" aria-label="Emplacement miniature Aesthetic Edit"></div>
-                      <div><strong>Aesthetic Edit</strong><span>Clean grading / texture</span></div>
-                    </article>
-                  </div>
-                </section>
-
-                <section class="phone-panel" data-section="skills" aria-label="Compétences mobile">
-                  <p class="mini-label">Creative toolkit</p>
-                  <h2>Skills</h2>
-                  <div class="skill-list">
-                    <div class="skill-row" data-progress="96"><span>Video Editing</span><i></i></div>
-                    <div class="skill-row" data-progress="92"><span>Transitions</span><i></i></div>
-                    <div class="skill-row" data-progress="94"><span>Beat Sync</span><i></i></div>
-                    <div class="skill-row" data-progress="86"><span>Color Grading</span><i></i></div>
-                    <div class="skill-row" data-progress="82"><span>Sound Design</span><i></i></div>
-                    <div class="skill-row" data-progress="78"><span>Motion Design</span><i></i></div>
-                  </div>
-                </section>
-
-                <section class="phone-panel" data-section="contact" aria-label="Contact mobile">
-                  <p class="mini-label">Booking</p>
-                  <h2>Contact</h2>
-                  <p class="panel-text">Built for creators, brands and artists who need visuals that hit.</p>
-
-                  <div class="contact-list">
-                    <a class="interactive" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok <span>@shahine.edits</span></a>
-                    <a class="interactive" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram <span>@shahine.visuals</span></a>
-                    <a class="interactive" href="mailto:shahine.edits@example.com">Email <span>shahine.edits@example.com</span></a>
-                  </div>
-
-                  <a class="phone-main-btn contact-btn interactive" href="mailto:shahine.edits@example.com">Work with me</a>
-                </section>
-              </div>
-
-              <nav class="phone-nav" aria-label="Navigation dans le téléphone">
-                <button class="phone-nav-btn active interactive" type="button" data-target="home">Home</button>
-                <button class="phone-nav-btn interactive" type="button" data-target="edits">Edits</button>
-                <button class="phone-nav-btn interactive" type="button" data-target="skills">Skills</button>
-                <button class="phone-nav-btn interactive" type="button" data-target="contact">Contact</button>
-              </nav>
+      <div class="webgl-fallback" id="webglFallback" aria-live="polite">
+        <div class="fallback-phone">
+          <div class="fallback-screen">
+            <div>
+              <p class="mini-label">Fallback mode</p>
+              <h2>SHAHINE</h2>
+              <p>WebGL is unavailable, but the premium portfolio remains accessible.</p>
             </div>
           </div>
         </div>

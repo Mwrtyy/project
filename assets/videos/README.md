@@ -1,1 +1,0 @@
-Place optimized video samples here. Prefer short muted MP4/WebM clips with lazy loading when used in the DOM.

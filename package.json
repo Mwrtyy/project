@@ -1,13 +1,16 @@
 {
-  "name": "shahine-premium-video-portfolio",
-  "version": "1.0.0",
+  "name": "shahine-wow-portfolio",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
-  "description": "Ultra premium audiovisual portfolio for Shahine, built for GitHub Pages with vanilla modules and Three.js CDN.",
+  "description": "Ultra premium animated video editor portfolio for Shahine.",
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
     "serve": "python -m http.server 5500"
+  },
+  "dependencies": {
+    "three": "^0.165.0"
   },
   "devDependencies": {
     "vite": "^5.4.0"

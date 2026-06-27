@@ -7,215 +7,161 @@
   <meta name="theme-color" content="#030405" />
   <title>Shahine — Premium Video Editor</title>
 
-  <link rel="preload" href="styles/main.css" as="style" />
-  <link rel="stylesheet" href="styles/main.css" />
-  <link rel="stylesheet" href="styles/responsive.css" />
-  <link rel="stylesheet" href="styles/wow.css" />
+  <link rel="stylesheet" href="styles/base/tokens.css" />
+  <link rel="stylesheet" href="styles/base/reset.css" />
+  <link rel="stylesheet" href="styles/base/layout.css" />
+  <link rel="stylesheet" href="styles/components/buttons.css" />
+  <link rel="stylesheet" href="styles/components/cards.css" />
+  <link rel="stylesheet" href="styles/components/phone-fallback.css" />
+  <link rel="stylesheet" href="styles/effects/cursor.css" />
+  <link rel="stylesheet" href="styles/effects/ambient.css" />
+  <link rel="stylesheet" href="styles/effects/animations.css" />
+  <link rel="stylesheet" href="styles/pages/pages.css" />
+  <link rel="stylesheet" href="styles/pages/responsive.css" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js"
+      }
+    }
+  </script>
   <script type="module" src="src/main.js" defer></script>
-  <script type="module" src="src/wow.js" defer></script>
 </head>
-<body class="is-loading">
-  <div class="intro-loader" id="introLoader" aria-hidden="true">
-    <div class="intro-scan"></div>
-    <div class="intro-inner">
+<body class="is-loading" data-route="home">
+  <a class="skip-link" href="#app">Aller au contenu</a>
+
+  <div class="loader" data-loader aria-hidden="true">
+    <div class="loader__scan"></div>
+    <div class="loader__inner">
       <p>LOADING SHOWREEL</p>
-      <h2>SHAHINE</h2>
-      <div class="intro-bar"><span></span></div>
+      <h1>SHAHINE</h1>
+      <span><i></i></span>
     </div>
   </div>
 
-  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <canvas class="particle-canvas" data-particles aria-hidden="true"></canvas>
+  <canvas class="webgl-canvas" data-webgl aria-hidden="true"></canvas>
 
-  <div class="background-grid" aria-hidden="true"></div>
-  <div class="cinema-vignette" aria-hidden="true"></div>
-  <div class="cursor-spotlight" aria-hidden="true"></div>
-  <div class="chrome-orb orb-left" aria-hidden="true"></div>
-  <div class="chrome-orb orb-right" aria-hidden="true"></div>
-  <div class="liquid-ribbon ribbon-a" aria-hidden="true"></div>
-  <div class="liquid-ribbon ribbon-b" aria-hidden="true"></div>
-  <div class="laser-scan scan-one" aria-hidden="true"></div>
-  <div class="laser-scan scan-two" aria-hidden="true"></div>
+  <div class="ambient ambient--grid" aria-hidden="true"></div>
+  <div class="ambient ambient--vignette" aria-hidden="true"></div>
+  <div class="ambient ambient--spotlight" aria-hidden="true"></div>
+  <div class="ambient ambient--orb ambient--orb-a" aria-hidden="true"></div>
+  <div class="ambient ambient--orb ambient--orb-b" aria-hidden="true"></div>
+  <div class="ambient ambient--scan ambient--scan-a" aria-hidden="true"></div>
+  <div class="ambient ambient--scan ambient--scan-b" aria-hidden="true"></div>
 
-  <div class="liquid-cursor" id="liquidCursor" aria-hidden="true">
-    <span class="cursor-highlight"></span>
-  </div>
-  <div class="liquid-cursor-trail" id="liquidCursorTrail" aria-hidden="true"></div>
+  <div class="cursor" data-cursor aria-hidden="true"><span></span></div>
+  <div class="cursor-trail" data-cursor-trail aria-hidden="true"></div>
 
   <header class="site-header">
-    <a class="brand interactive" href="#home" data-target="home" aria-label="Retour à l'accueil">
-      <span class="brand-mark"></span>
+    <a class="brand js-magnetic" href="#/home" data-route-link="home" aria-label="Accueil Shahine">
+      <span class="brand__mark"></span>
       <span>SHAHINE</span>
     </a>
 
-    <nav class="desktop-nav" aria-label="Navigation principale">
-      <button class="nav-link active interactive" type="button" data-target="home">Home</button>
-      <button class="nav-link interactive" type="button" data-target="edits">Edits</button>
-      <button class="nav-link interactive" type="button" data-target="skills">Skills</button>
-      <button class="nav-link interactive" type="button" data-target="contact">Contact</button>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <a class="nav-link is-active js-magnetic" href="#/home" data-route-link="home">Home</a>
+      <a class="nav-link js-magnetic" href="#/edits" data-route-link="edits">Edits</a>
+      <a class="nav-link js-magnetic" href="#/skills" data-route-link="skills">Skills</a>
+      <a class="nav-link js-magnetic" href="#/contact" data-route-link="contact">Contact</a>
     </nav>
   </header>
 
-  <main id="home" class="page-shell">
-    <section class="hero-section hero-wow" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <div class="hero-kicker reveal">
-          <span class="live-dot"></span>
-          <span>Editing system online</span>
-          <i>12M+ social views</i>
-        </div>
-        <p class="eyebrow reveal">Premium audiovisual portfolio</p>
-        <h1 id="hero-title" class="hero-title reveal delay-1">SHAHINE</h1>
-        <p class="hero-lead reveal delay-2">
-          Video editor crafting TikTok edits, cinematic cuts and beat sync visuals with clean pacing, premium grading and social-first impact.
-        </p>
-
-        <div class="hero-actions reveal delay-3">
-          <button class="primary-cta interactive" type="button" data-target="edits">View edits</button>
-          <button class="secondary-cta interactive" type="button" data-target="contact">Contact</button>
-        </div>
-
-        <div class="tag-cloud reveal delay-4" aria-label="Spécialités">
-          <span>TikTok Edits</span>
-          <span>Beat Sync</span>
-          <span>Color Grading</span>
-          <span>Motion Design</span>
-          <span>Cinematic Cuts</span>
-        </div>
-
-        <div class="hero-metrics reveal delay-5" aria-label="Statistiques de Shahine">
-          <article><strong>180+</strong><span>Edits delivered</span></article>
-          <article><strong>12M+</strong><span>Estimated views</span></article>
-          <article><strong>48+</strong><span>Creators & brands</span></article>
-        </div>
-
-        <div class="timeline-widget reveal delay-5" aria-label="Timeline de montage décorative">
-          <div class="timeline-head"><span>Retention cut</span><strong>00:12 / 00:18</strong></div>
-          <div class="timeline-tracks">
-            <i style="--w: 28%"></i><i style="--w: 44%"></i><i style="--w: 18%"></i><i style="--w: 36%"></i><i style="--w: 22%"></i>
+  <main id="app" class="app-shell" tabindex="-1">
+    <section class="view view--home is-active" data-view="home" aria-labelledby="home-title">
+      <div class="home-grid">
+        <div class="hero-copy">
+          <div class="status-pill reveal js-magnetic">
+            <span></span>
+            <strong>Editing system online</strong>
+            <em>12M+ social views</em>
           </div>
-          <div class="beat-dots"><span></span><span></span><span></span><span></span><span></span></div>
+
+          <p class="eyebrow reveal">Premium audiovisual portfolio</p>
+          <h1 id="home-title" class="hero-title reveal">SHAHINE</h1>
+          <p class="hero-lead reveal">
+            Video editor crafting TikTok edits, cinematic cuts and beat sync visuals with clean pacing, premium grading and social-first impact.
+          </p>
+
+          <div class="button-row reveal">
+            <a class="button button--primary js-magnetic js-ripple" href="#/edits" data-route-link="edits">View edits</a>
+            <a class="button button--ghost js-magnetic js-ripple" href="#/contact" data-route-link="contact">Contact</a>
+          </div>
+
+          <div class="tag-cloud reveal" aria-label="Spécialités">
+            <button class="tag js-magnetic js-ripple" type="button">TikTok Edits</button>
+            <button class="tag js-magnetic js-ripple" type="button">Beat Sync</button>
+            <button class="tag js-magnetic js-ripple" type="button">Color Grading</button>
+            <button class="tag js-magnetic js-ripple" type="button">Motion Design</button>
+            <button class="tag js-magnetic js-ripple" type="button">Cinematic Cuts</button>
+          </div>
+
+          <div class="metric-row reveal">
+            <article class="metric-card js-magnetic"><strong data-count="180" data-suffix="+">0</strong><span>Edits delivered</span></article>
+            <article class="metric-card js-magnetic"><strong data-count="12" data-suffix="M+">0</strong><span>Estimated views</span></article>
+            <article class="metric-card js-magnetic"><strong data-count="48" data-suffix="+">0</strong><span>Creators & brands</span></article>
+          </div>
+
+          <div class="timeline-widget reveal js-magnetic" aria-label="Timeline de montage">
+            <div class="timeline-widget__head">
+              <span>Retention cut</span>
+              <strong>00:12 / 00:18</strong>
+            </div>
+            <div class="timeline-widget__tracks">
+              <i style="--w:31%"></i>
+              <i style="--w:46%"></i>
+              <i style="--w:18%"></i>
+              <i style="--w:39%"></i>
+              <i style="--w:24%"></i>
+            </div>
+            <div class="timeline-widget__beats"><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
         </div>
-      </div>
 
-      <div class="showcase-stage" aria-label="Téléphone 3D interactif contenant le portfolio de Shahine">
-        <div class="stage-plate" aria-hidden="true"></div>
-        <div class="chrome-halo halo-one" aria-hidden="true"></div>
-        <div class="chrome-halo halo-two" aria-hidden="true"></div>
-        <div class="sound-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="floating-card card-top interactive" data-depth="18"><span>01</span><strong>Beat Sync</strong><small>cut / impact / loop</small></div>
-        <div class="floating-card card-left interactive" data-depth="-12"><span>02</span><strong>Color Grade</strong><small>chrome / contrast</small></div>
-        <div class="floating-card card-right interactive" data-depth="10"><span>03</span><strong>Retention</strong><small>hook / replay</small></div>
+        <div class="showcase" aria-label="Vitrine 3D interactive">
+          <div class="showcase__halo showcase__halo--a" aria-hidden="true"></div>
+          <div class="showcase__halo showcase__halo--b" aria-hidden="true"></div>
 
-        <div class="stage-note glass-card reveal delay-4">
-          <strong>Interactive portfolio</strong>
-          <span>Click, swipe or use the navigation to explore the phone interface.</span>
-        </div>
+          <a class="float-card float-card--top js-magnetic" href="#/edits" data-route-link="edits" data-depth="20">
+            <span>01</span><strong>Beat Sync</strong><small>cut / impact / loop</small>
+          </a>
+          <a class="float-card float-card--left js-magnetic" href="#/skills" data-route-link="skills" data-depth="-14">
+            <span>02</span><strong>Color Grade</strong><small>chrome / contrast</small>
+          </a>
+          <a class="float-card float-card--right js-magnetic" href="#/contact" data-route-link="contact" data-depth="12">
+            <span>03</span><strong>Retention</strong><small>hook / replay</small>
+          </a>
 
-        <div class="phone-wrap reveal delay-2" id="phoneWrap">
-          <div class="phone-device interactive" id="phoneDevice">
-            <div class="phone-depth depth-left"></div>
-            <div class="phone-depth depth-right"></div>
-            <div class="phone-button button-left-one"></div>
-            <div class="phone-button button-left-two"></div>
-            <div class="phone-button button-right"></div>
-            <div class="phone-rim">
-              <div class="phone-inner-rim">
-                <div class="dynamic-island"><span></span></div>
-                <div class="screen-glare"></div>
-                <div class="phone-screen" id="phoneScreen">
-                  <div class="screen-status">
-                    <span>SHAHINE</span>
-                    <i></i>
-                  </div>
+          <div class="sound-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
-                  <div class="screen-panels">
-                    <section class="screen-panel active" data-section="home">
-                      <p class="mini-label">Portfolio mobile</p>
-                      <h2>SHAHINE</h2>
-                      <h3>Video Editor</h3>
-                      <p>TikTok edits, cinematic cuts & beat sync visuals.</p>
-                      <div class="phone-stats">
-                        <article><strong>180+</strong><span>Edits</span></article>
-                        <article><strong>12M+</strong><span>Views</span></article>
-                        <article><strong>48+</strong><span>Clients</span></article>
-                      </div>
-                      <button class="phone-main-btn interactive" type="button" data-target="edits">Explore edits</button>
-                    </section>
-
-                    <section class="screen-panel" data-section="edits">
-                      <p class="mini-label">Selected edits</p>
-                      <h2>Edits</h2>
-                      <div class="project-list">
-                        <article class="project-card interactive"><i class="thumb cinematic"></i><div><strong>Cinematic Edit</strong><span>Mood / depth / polish</span></div></article>
-                        <article class="project-card interactive"><i class="thumb beat"></i><div><strong>Beat Sync</strong><span>Cuts locked to rhythm</span></div></article>
-                        <article class="project-card interactive"><i class="thumb transition"></i><div><strong>Transition Edit</strong><span>Whip / zoom / match cuts</span></div></article>
-                        <article class="project-card interactive"><i class="thumb aesthetic"></i><div><strong>Aesthetic Edit</strong><span>Texture / color / pacing</span></div></article>
-                        <article class="project-card interactive"><i class="thumb music"></i><div><strong>Music Video Cut</strong><span>Performance / rhythm</span></div></article>
-                        <article class="project-card interactive"><i class="thumb social"></i><div><strong>Social Media Ad</strong><span>Hook / retention / impact</span></div></article>
-                      </div>
-                    </section>
-
-                    <section class="screen-panel" data-section="skills">
-                      <p class="mini-label">Creative toolkit</p>
-                      <h2>Skills</h2>
-                      <div class="skill-list">
-                        <div class="skill-row" data-progress="96"><span>Video Editing</span><i></i></div>
-                        <div class="skill-row" data-progress="94"><span>Beat Sync</span><i></i></div>
-                        <div class="skill-row" data-progress="92"><span>Transitions</span><i></i></div>
-                        <div class="skill-row" data-progress="88"><span>Color Grading</span><i></i></div>
-                        <div class="skill-row" data-progress="84"><span>Sound Design</span><i></i></div>
-                        <div class="skill-row" data-progress="80"><span>Motion Design</span><i></i></div>
-                        <div class="skill-row" data-progress="86"><span>AE / Premiere / CapCut</span><i></i></div>
-                      </div>
-                    </section>
-
-                    <section class="screen-panel" data-section="contact">
-                      <p class="mini-label">Booking</p>
-                      <h2>Contact</h2>
-                      <p>Built for creators, brands and artists who need visuals that hit.</p>
-                      <div class="contact-list">
-                        <a class="interactive" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok <span>@shahine.edits</span></a>
-                        <a class="interactive" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram <span>@shahine.visuals</span></a>
-                        <a class="interactive" href="mailto:shahine.edits@example.com">Email <span>shahine.edits@example.com</span></a>
-                      </div>
-                      <a class="phone-main-btn interactive" href="mailto:shahine.edits@example.com">Work with me</a>
-                    </section>
-                  </div>
-
-                  <nav class="phone-nav" aria-label="Navigation dans le téléphone">
-                    <button class="phone-nav-btn active interactive" type="button" data-target="home">Home</button>
-                    <button class="phone-nav-btn interactive" type="button" data-target="edits">Edits</button>
-                    <button class="phone-nav-btn interactive" type="button" data-target="skills">Skills</button>
-                    <button class="phone-nav-btn interactive" type="button" data-target="contact">Contact</button>
-                  </nav>
-                </div>
+          <div class="phone-fallback" data-phone-fallback aria-hidden="true">
+            <div class="phone-fallback__body">
+              <div class="phone-fallback__island"></div>
+              <div class="phone-fallback__screen">
+                <p>SHAHINE</p>
+                <h2>Video Editor</h2>
+                <span>TikTok / Beat Sync / Cinematic</span>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <section class="showreel-block reveal" aria-label="Showreel">
+        <div class="showreel-block__top"><span>SHAHINE / SHOWREEL</span><strong>4K SOCIAL CUT</strong></div>
+        <div class="showreel-block__visual js-magnetic">
+          <button class="play-orb js-ripple js-magnetic" type="button" aria-label="Lire le showreel"><span></span></button>
+          <div class="reel-strip" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="waveform" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="showreel-block__bottom"><span>Hook 00:02</span><span>Speed ramp</span><span>Grade pass</span><span>Export ready</span></div>
+      </section>
     </section>
 
-    <section class="showreel-section showreel-wow" aria-label="Preuves et services">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Selected production style</p>
-        <h2>Clean edits. Strong rhythm. Premium finish.</h2>
-      </div>
-      <div class="showreel-frame reveal delay-1">
-        <div class="showreel-top"><span>SHAHINE / SHOWREEL</span><strong>4K SOCIAL CUT</strong></div>
-        <div class="showreel-visual">
-          <div class="play-orb interactive"><span></span></div>
-          <div class="reel-strip"><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="waveform"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-        <div class="showreel-bottom"><span>Hook 00:02</span><span>Speed ramp</span><span>Grade pass</span><span>Export ready</span></div>
-      </div>
-      <div class="service-grid">
-        <article class="service-card interactive reveal"><span>01</span><h3>Cinematic pacing</h3><p>Slow motion, mood, lens texture and clean cuts for visual storytelling.</p></article>
-        <article class="service-card interactive reveal delay-1"><span>02</span><h3>Beat sync impact</h3><p>Frame-accurate cuts, speed ramps and rhythm-driven transitions.</p></article>
-        <article class="service-card interactive reveal delay-2"><span>03</span><h3>Social retention</h3><p>Hooks, punchy structure and polished short-form edits built to be watched twice.</p></article>
-      </div>
-    </section>
+    <section class="view view--edits" data-view="edits" aria-labelledby="edits-title"></section>
+    <section class="view view--skills" data-view="skills" aria-labelledby="skills-title"></section>
+    <section class="view view--contact" data-view="contact" aria-labelledby="contact-title"></section>
   </main>
 
   <footer class="site-footer">
